@@ -9,35 +9,41 @@
 <body>
     <div id="calculator">
         <div id="display">
-            0
+            
         </div>
         <div id="buttons">
             <div class="button-row">
-                <button title="Percentage">%</button>
-                <button title="Clear Entry">CE</button>
-                <button title="Clear">C</button>
-                <button title="Backspace">⌫</button>
+                <button class="operator" title="Percentage">%</button>
+                <button class="operator" title="Clear">C</button>
+                <button class="operator" title="pi">π</button>
+                <button  title="Backspace">⌫</button>
             </div>
             
             <div class="button-row">
-                <button title="1/x">¹∕ₓ</button>
-                <button title="x²">x²</button>
-                <button title="Square root">²√x</button>
-                <button class="operator" title="Divide">÷</button>
+                <button class="operator" title="Left Parenthesis">(</button>
+                <button class="operator" title="Right Parenthesis">)</button>
+                <button class="operator" title="Square Root">²√x</button>
+                <button class="operator" title="Exponent">^</button>
             </div>
             
+            <div class="button-row">
+                <button class="operator" title="Sine">sin</button>
+                <button class="operator" title="Cosine">cos</button>
+                <button class="operator" title="Tangent">tan</button>
+                <button class="operator" title="Divide">/</button>
+            </div>
             <div class="button-row">
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
-                <button class="operator" title="Multiply">×</button>
+                <button class="operator" title="Multiply">*</button>
             </div>
             
             <div class="button-row">
                 <button>4</button>
                 <button>5</button>
                 <button>6</button>
-                <button class="operator" title="Minus">−</button>
+                <button class="operator" title="Minus">-</button>
             </div>
             
             <div class="button-row">
@@ -48,12 +54,13 @@
             </div>
             
             <div class="button-row">
-                <button title="Plus/Minus">+/−</button>
+                <button class="operator" title="e">e</button>
                 <button>0</button>
                 <button>.</button>
                 <button class="equals" title="Equals">=</button>
             </div>
         </div>
     </div>
+    <script src="events.js"></script>
 </body>
 </html>

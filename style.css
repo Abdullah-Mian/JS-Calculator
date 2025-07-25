@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 #buttons {
