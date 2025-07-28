@@ -1,4 +1,7 @@
-const display = document.getElementById('display');
+const display = document.getElementById('current-expression');
+const inlineHistory = document.getElementById('inline-history');
+const historyPanel = document.getElementById('history-items-container');
+const clearHistoryBtn = document.getElementById('clear-history-btn');
 const buttons = Array.from(document.getElementsByTagName('button'));
 let History = [];
 
@@ -77,6 +80,48 @@ popup.style.cssText = `
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 `;
 
+const updateHistoryDisplay = () => {
+    if (historyPanel) {
+        historyPanel.innerHTML = '';
+        
+        if (History.length === 0) {
+            historyPanel.innerHTML = '<div style="text-align: center; color: #666; padding: 40px 20px;">No history yet</div>';
+        } else {
+            History.slice().reverse().forEach((item) => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-expression">${item.expression.replace(/Math\./g, '')}</div>
+                    <div class="history-result">${item.result}</div>
+                `;
+                
+                historyItem.addEventListener('click', () => {
+                    display.innerText = item.result;
+                    cursorToRight();
+                });
+                
+                historyPanel.appendChild(historyItem);
+            });
+        }
+    }
+    
+    // Update mobile inline history (show only last calculation)
+    if (inlineHistory && History.length > 0) {
+        const lastItem = History[History.length - 1];
+        inlineHistory.textContent = `${lastItem.expression.replace(/Math\./g, '')} = ${lastItem.result}`;
+    } else if (inlineHistory) {
+        inlineHistory.textContent = '';
+    }
+};
+
+// Clear history functionality
+if (clearHistoryBtn) {
+    clearHistoryBtn.addEventListener('click', () => {
+        History = [];
+        updateHistoryDisplay();
+    });
+}
+
 // Event Listeners
 display.addEventListener('input', (e) => {
     // Remove invalid characters
@@ -132,6 +177,7 @@ display.addEventListener('keydown', (e) => {
                 result: result
             });
             
+            updateHistoryDisplay();
             console.log('Evaluation history:', History);
         } catch {
             display.innerText = "Error";
@@ -158,6 +204,7 @@ buttons.map(button => {
                     expression: expression,
                     result: result
                 });
+                updateHistoryDisplay();
                 console.log('Evaluation history:', History);
             } catch {
                 display.innerText = "Error";
@@ -186,8 +233,11 @@ buttons.map(button => {
         } 
         else if (buttonText === 'tan') {
             display.innerText += 'tan(';
-        } 
-        else {
+        }
+        else if (buttonText === '🗑️') {
+            History.length = 0; // Clear history
+            updateHistoryDisplay();
+        } else {
             display.innerText += buttonText;
         }
     });

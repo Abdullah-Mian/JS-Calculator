@@ -1,66 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Scientific Calculator</title>
 </head>
+
 <body>
-    <div id="calculator">
-        <div id="display">
-            
+    <div id="wrapper">
+        <div id="history-panel">
+            <div id="history-header">
+                <h3>History</h3>
+                <button id="clear-history-btn">🗑️</button>
+            </div>
+            <div id="history-items-container">
+            </div>
         </div>
-        <div id="buttons">
-            <div class="button-row">
-                <button class="operator" title="Percentage">%</button>
-                <button class="operator" title="Clear">C</button>
-                <button class="operator" title="pi">π</button>
-                <button  title="Backspace">⌫</button>
+
+        <div id="calculator">
+            <div id="display">
+                <div id="inline-history">
+                </div>
+                
+                <div id="current-expression"></div>
             </div>
-            
-            <div class="button-row">
-                <button class="operator" title="Left Parenthesis">(</button>
-                <button class="operator" title="Right Parenthesis">)</button>
-                <button class="operator" title="Square Root">²√x</button>
-                <button class="operator" title="Exponent">^</button>
-            </div>
-            
-            <div class="button-row">
-                <button class="operator" title="Sine">sin</button>
-                <button class="operator" title="Cosine">cos</button>
-                <button class="operator" title="Tangent">tan</button>
-                <button class="operator" title="Divide">/</button>
-            </div>
-            <div class="button-row">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button class="operator" title="Multiply">*</button>
-            </div>
-            
-            <div class="button-row">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button class="operator" title="Minus">-</button>
-            </div>
-            
-            <div class="button-row">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button class="operator" title="Plus">+</button>
-            </div>
-            
-            <div class="button-row">
-                <button class="operator" title="e">e</button>
-                <button>0</button>
-                <button>.</button>
-                <button class="equals" title="Equals">=</button>
+            <div id="buttons">
+                <div class="button-row">
+                    <button class="operator" title="Percentage">%</button>
+                    <button class="operator" title="Clear">C</button>
+                    <button class="operator" title="pi">π</button>
+                    <button title="Backspace">⌫</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="operator" title="Left Parenthesis">(</button>
+                    <button class="operator" title="Right Parenthesis">)</button>
+                    <button class="operator" title="Square Root">²√x</button>
+                    <button class="operator" title="Exponent">^</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="operator" title="Sine">sin</button>
+                    <button class="operator" title="Cosine">cos</button>
+                    <button class="operator" title="Tangent">tan</button>
+                    <button class="operator" title="Divide">/</button>
+                </div>
+                <div class="button-row">
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="operator" title="Multiply">*</button>
+                </div>
+
+                <div class="button-row">
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="operator" title="Minus">-</button>
+                </div>
+
+                <div class="button-row">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="operator" title="Plus">+</button>
+                </div>
+
+                <div class="button-row">
+                    <button class="operator" title="e">e</button>
+                    <button>0</button>
+                    <button>.</button>
+                    <button class="equals" title="Equals">=</button>
+                </div>
             </div>
         </div>
     </div>
     <script src="events.js"></script>
 </body>
+
 </html>
